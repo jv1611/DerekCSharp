@@ -18,6 +18,9 @@ namespace Oefening1
 
             SayHello();
 
+            string newString = String.Format("{0} saw a {1} {2} in the {3}", "Paul", "rabbit", "eating", "field");
+            Console.Write(newString);
+
             Console.ReadKey();
         }
 
