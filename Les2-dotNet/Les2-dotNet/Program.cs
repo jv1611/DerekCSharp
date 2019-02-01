@@ -24,8 +24,8 @@ namespace Les2_dotNet
 
             Console.WriteLine( customers[0] + employees[1]);
 
-            object[] randomArray = { "Paul", 1234, 3.1428 };
-            Console.WriteLine("randomArray 0 : {0}", randomArray[2].GetType());
+            object[] randomArray = { "Paul", 1234, 3.1428, "Piep"};
+            Console.WriteLine("randomArray 0 : {0}", randomArray[1].GetType());
             Console.WriteLine("randomArray 0 : {0}", randomArray.Length);
 
             for(int i= 0; i<randomArray.Length; i++)
@@ -33,13 +33,14 @@ namespace Les2_dotNet
                 Console.WriteLine("Array {0} : Value {1}", i, randomArray[i]);
             }
 
-            string[,] custNames = new string[2, 2]
+            string[,] custNames = new string[3, 2]
             {
                 {"Bob", "Koen" },
-                {"Anna", "Truus" }
+                {"Anna", "Truus" },
+                {"Henk", "Ingrid" }
             };
 
-            Console.WriteLine("Waarde multi data: {0}", custNames.GetValue(1,1));
+            Console.WriteLine("Waarde multi data: {0}", custNames.GetValue(1,0));
 
             for (int i = 0; i < custNames.GetLength(0); i++)
             {
@@ -88,6 +89,40 @@ namespace Les2_dotNet
             int[] numArray = { 1, 11, 22 };
             Console.WriteLine(">10: {0}", Array.Find(numArray, GT10));
             // Er is ook nog FindAll en FindIndex
+
+
+            // Stringbuilder
+            StringBuilder sb = new StringBuilder("Random Tekst");
+            StringBuilder sb2 = new StringBuilder("Meer Tekst", 256);
+
+            Console.WriteLine("Capacity: {0}", sb.Capacity);
+            Console.WriteLine("Capacity: {0}", sb2.Capacity);
+            Console.WriteLine("Length: {0}", sb2.Length);
+
+            sb2.AppendLine("\nNog meer teksten");
+
+            CultureInfo enUs = CultureInfo.CreateSpecificCulture("en-US");
+
+            string bestCust = "Jo Man";
+            sb2.AppendFormat(enUs, "Beste klant: {0}", bestCust);
+            Console.WriteLine(sb2.ToString());
+
+            sb2.Replace("kst", "XT");
+            Console.WriteLine(sb2.ToString());
+
+            sb2.Clear();
+            sb2.Append("English Only");
+            Console.WriteLine(sb2.ToString());
+
+            sb2.Insert(12, " you Idiot!"); // Kan niet > sb2 zijn. 13 gaat hier fout
+            Console.WriteLine(sb2.ToString());
+
+            sb2.Remove(12, 4);
+            Console.WriteLine(sb2.ToString());
+
+            long num1 = 1234;
+            int num2 = (int)num1;
+            Console.WriteLine("Org: {0} Type2: {1}", num1.GetType(), num2.GetType());
 
             Console.ReadKey();
         }
