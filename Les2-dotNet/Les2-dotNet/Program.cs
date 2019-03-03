@@ -46,7 +46,7 @@ namespace Les2_dotNet
             {
                 for (int j=0; j < custNames.GetLength(1); j++)
                 {
-                    Console.Write("{0} ", custNames[i,j]);
+                    Console.Write("{0} NNN ", custNames[i,j]);
                     Console.Write(custNames[i,j]);
                 }
                 Console.WriteLine();
